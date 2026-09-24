@@ -5,3 +5,6 @@ node_modules/
 montage/**/media/
 montage/**/snapshots/
 montage/**/*.mp4
+
+# Clés API (ne jamais publier)
+.env
