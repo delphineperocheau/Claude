@@ -1,55 +1,202 @@
 <!doctype html>
-<html lang="en" data-resolution="portrait">
+<html lang="fr" data-resolution="portrait">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <title>Maroc, les révélations</title>
+    <script src="assets/gsap.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1080px;
-        height: 1920px;
-        overflow: hidden;
-        background: #0a0a0a;
-      }
-      #root {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #000; font-family: Montserrat, sans-serif; }
+      .shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .vignette { position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%),
+                    linear-gradient(to bottom, rgba(0,0,0,0) 62%, rgba(0,0,0,0.7) 100%); }
+      .cap { position: absolute; left: 70px; right: 70px; bottom: 300px; display: flex; justify-content: center; }
+      .cap-in { font-weight: 900; font-size: 62px; line-height: 1.12; color: #fff; text-align: center;
+        text-transform: uppercase; letter-spacing: -0.01em;
+        text-shadow: 0 4px 0 #000, 0 0 18px rgba(0,0,0,0.9); -webkit-text-stroke: 3px #000; paint-order: stroke fill; }
+      .hl { color: #FFD60A; white-space: nowrap; }
+      .over { position: absolute; left: 60px; right: 60px; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; }
+      .over-in { font-family: "League Gothic", sans-serif; font-size: 138px; line-height: 1; color: #fff; text-align: center;
+        text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.85); }
+      .tag { position: absolute; top: 120px; left: 70px; display: flex; align-items: center; gap: 18px;
+        font-weight: 800; font-size: 34px; letter-spacing: 0.22em; color: #fff; background: rgba(0,0,0,0.55);
+        padding: 14px 26px; border-left: 8px solid #E10600; }
+      .dot { display: block; width: 22px; height: 22px; border-radius: 50%; background: #E10600; }
+      #title { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      #t-maroc { font-family: "League Gothic", sans-serif; font-size: 400px; line-height: 0.9; color: #FFD60A;
+        text-shadow: 0 10px 50px rgba(0,0,0,0.9); letter-spacing: 0.02em; }
+      #t-band { margin-top: 10px; background: #E10600; padding: 12px 40px; transform-origin: left center; }
+      #t-rev { display: block; font-weight: 900; font-size: 84px; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; }
+      #end { position: absolute; inset: 0; background: #000; display: flex; align-items: center; justify-content: center; }
+      #e-q .l { display: block; }
+      #e-q { position: absolute; font-family: "League Gothic", sans-serif; font-size: 190px; color: #fff; text-align: center; line-height: 0.95; }
+      #e-title { display: flex; flex-direction: column; align-items: center; }
+      #e-title .m { font-family: "League Gothic", sans-serif; font-size: 300px; line-height: 0.9; color: #FFD60A; }
+      #e-title .r { margin-top: 10px; background: #E10600; padding: 10px 34px; font-weight: 900; font-size: 70px; color: #fff; letter-spacing: 0.04em; }
+      #e-suite { position: absolute; bottom: 380px; left: 0; right: 0; text-align: center; font-weight: 800; font-size: 44px; letter-spacing: 0.4em; color: #fff; }
+      #flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1080"
-      data-height="1920"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="74.771" data-width="1080" data-height="1920">
+      <video id="v-broll-ballons" class="clip shot" src="media/broll-ballons.mp4" data-start="0.0" data-duration="2.467" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-broll-chameaux" class="clip shot" src="media/broll-chameaux.mp4" data-start="2.467" data-duration="2.267" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-broll-souk" class="clip shot" src="media/broll-souk.mp4" data-start="4.734" data-duration="2.067" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-broll-dunes" class="clip shot" src="media/broll-dunes.mp4" data-start="6.801" data-duration="2.267" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-broll-feu-titre" class="clip shot" src="media/broll-feu-titre.mp4" data-start="9.068" data-duration="3.2" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c01-audrey" class="clip shot" src="media/c01-audrey.mp4" data-start="12.268" data-duration="2.433" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c02-delphine" class="clip shot" src="media/c02-delphine.mp4" data-start="14.701" data-duration="4.433" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c03-pierre" class="clip shot" src="media/c03-pierre.mp4" data-start="19.134" data-duration="3.5" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c04-diana" class="clip shot" src="media/c04-diana.mp4" data-start="22.634" data-duration="3.867" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c05-dino" class="clip shot" src="media/c05-dino.mp4" data-start="26.501" data-duration="5.1" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c06-sebastien" class="clip shot" src="media/c06-sebastien.mp4" data-start="31.601" data-duration="7.255" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-broll-the" class="clip shot" src="media/broll-the.mp4" data-start="38.856" data-duration="1.867" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-broll-feu" class="clip shot" src="media/broll-feu.mp4" data-start="40.723" data-duration="1.8" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c07-marion" class="clip shot" src="media/c07-marion.mp4" data-start="42.523" data-duration="9.088" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c08-sousx" class="clip shot" src="media/c08-sousx.mp4" data-start="51.611" data-duration="4.533" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c09-bivouac" class="clip shot" src="media/c09-bivouac.mp4" data-start="56.144" data-duration="4.0" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c10-bestiole" class="clip shot" src="media/c10-bestiole.mp4" data-start="60.144" data-duration="4.433" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c11-coeur" class="clip shot" src="media/c11-coeur.mp4" data-start="64.577" data-duration="2.26" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c12-jeanpaul-a" class="clip shot" src="media/c12-jeanpaul-a.mp4" data-start="66.837" data-duration="1.667" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <video id="v-c13-jeanpaul-b" class="clip shot" src="media/c13-jeanpaul-b.mp4" data-start="68.504" data-duration="1.767" data-media-start="0" data-track-index="0" muted playsinline></video>
+      <div class="vignette"></div>
+      <div id="title" class="clip" data-start="9.068" data-duration="3.2" data-track-index="6">
+        <div id="t-maroc">MAROC</div>
+        <div id="t-band"><span id="t-rev">Les révélations</span></div>
+      </div>
+      <div id="ov-broll-ballons" class="clip over" data-start="0.0" data-duration="2.467" data-track-index="4"><p class="over-in">Ils pensaient partir en vacances…</p></div>
+      <div id="ov-broll-souk" class="clip over" data-start="4.734" data-duration="2.067" data-track-index="4"><p class="over-in">…mais chacun cache un secret.</p></div>
+      <div id="cap-c01-audrey" class="clip cap" data-start="12.268" data-duration="2.433" data-track-index="3"><p class="cap-in">Je pense qu&#x27;Audrey est <span class="hl">propriétaire de bar</span>.</p></div>
+      <div id="cap-c02-delphine" class="clip cap" data-start="14.701" data-duration="4.433" data-track-index="3"><p class="cap-in">Je pense que Delphine t&#x27;es propriétaire de… Ah oui ? <span class="hl">Toi aussi ?</span></p></div>
+      <div id="cap-c03-pierre" class="clip cap" data-start="19.134" data-duration="3.5" data-track-index="3"><p class="cap-in">Pierre a eu un petit <span class="hl">accident de voiture</span> au Mexique.</p></div>
+      <div id="cap-c04-diana" class="clip cap" data-start="22.634" data-duration="3.867" data-track-index="3"><p class="cap-in">Je pense que Diana a été aux <span class="hl">24h du Mans</span>.</p></div>
+      <div id="cap-c05-dino" class="clip cap" data-start="26.501" data-duration="5.1" data-track-index="3"><p class="cap-in">Dino a déjà fait des <span class="hl">fouilles archéologiques</span>.</p></div>
+      <div id="cap-c06-sebastien" class="clip cap" data-start="31.601" data-duration="7.255" data-track-index="3"><p class="cap-in">Je pense que Sébastien a besoin de <span class="hl">deux doses d&#x27;anesthésie</span>.</p></div>
+      <div id="ov-broll-feu" class="clip over" data-start="40.723" data-duration="1.8" data-track-index="4"><p class="over-in">Et puis…</p></div>
+      <div id="cap-c07-marion" class="clip cap" data-start="42.523" data-duration="9.088" data-track-index="3"><p class="cap-in">Alors moi je pense… c&#x27;est Marion, qui est pupille de l&#x27;État et <span class="hl">née sous X</span>.</p></div>
+      <div id="cap-c08-sousx" class="clip cap" data-start="51.611" data-duration="4.533" data-track-index="3"><p class="cap-in">La personne c&#x27;est sous X… je ne peux pas l&#x27;entendre ça. C&#x27;est <span class="hl">trop dur pour moi</span>.</p></div>
+      <div id="cap-c09-bivouac" class="clip cap" data-start="56.144" data-duration="4.0" data-track-index="3"><p class="cap-in">La personne qui est <span class="hl">tombée dans un feu</span> lors d&#x27;un bivouac…</p></div>
+      <div id="cap-c10-bestiole" class="clip cap" data-start="60.144" data-duration="4.433" data-track-index="3"><p class="cap-in"><span class="hl">Dégueulasse !</span> Je croyais qu&#x27;il y avait pas de bestiole ici !</p></div>
+      <div id="cap-c11-coeur" class="clip cap" data-start="64.577" data-duration="2.26" data-track-index="3"><p class="cap-in">Parce que j&#x27;ai le <span class="hl">cœur riche</span>.</p></div>
+      <div id="cap-c12-jeanpaul-a" class="clip cap" data-start="66.837" data-duration="1.667" data-track-index="3"><p class="cap-in">Donc je dis que c&#x27;est <span class="hl">Jean-Paul</span>.</p></div>
+      <div id="cap-c13-jeanpaul-b" class="clip cap" data-start="68.504" data-duration="1.767" data-track-index="3"><p class="cap-in">Pour moi, c&#x27;est <span class="hl">Jean-Paul</span>.</p></div>
+      <div id="tag-0" class="clip tag" data-start="12.268" data-duration="26.588" data-track-index="5"><span class="dot"></span>CONFESSION</div>
+      <div id="tag-1" class="clip tag" data-start="42.523" data-duration="27.748" data-track-index="5"><span class="dot"></span>CONFESSION</div>
+      <div id="end" class="clip" data-start="70.271" data-duration="4.5" data-track-index="7">
+        <div id="e-q" data-layout-allow-overlap><span class="l">QUI CACHE</span><span class="l">QUOI ?</span></div>
+        <div id="e-title" data-layout-allow-overlap><div class="m">MAROC</div><div class="r">LES RÉVÉLATIONS</div></div>
+        <div id="e-suite">À SUIVRE…</div>
+      </div>
+      <div id="flash"></div>
+      <audio id="a-broll-ballons" src="media/broll-ballons.mp4" data-start="0.0" data-duration="2.467" data-media-start="0" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="a-broll-chameaux" src="media/broll-chameaux.mp4" data-start="2.467" data-duration="2.267" data-media-start="0" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="a-broll-souk" src="media/broll-souk.mp4" data-start="4.734" data-duration="2.067" data-media-start="0" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="a-broll-dunes" src="media/broll-dunes.mp4" data-start="6.801" data-duration="2.267" data-media-start="0" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="a-broll-feu-titre" src="media/broll-feu-titre.mp4" data-start="9.068" data-duration="3.2" data-media-start="0" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="a-c01-audrey" src="media/c01-audrey.mp4" data-start="12.268" data-duration="2.433" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c02-delphine" src="media/c02-delphine.mp4" data-start="14.701" data-duration="4.433" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c03-pierre" src="media/c03-pierre.mp4" data-start="19.134" data-duration="3.5" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c04-diana" src="media/c04-diana.mp4" data-start="22.634" data-duration="3.867" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c05-dino" src="media/c05-dino.mp4" data-start="26.501" data-duration="5.1" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c06-sebastien" src="media/c06-sebastien.mp4" data-start="31.601" data-duration="7.255" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-broll-the" src="media/broll-the.mp4" data-start="38.856" data-duration="1.867" data-media-start="0" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="a-broll-feu" src="media/broll-feu.mp4" data-start="40.723" data-duration="1.8" data-media-start="0" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="a-c07-marion" src="media/c07-marion.mp4" data-start="42.523" data-duration="9.088" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c08-sousx" src="media/c08-sousx.mp4" data-start="51.611" data-duration="4.533" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c09-bivouac" src="media/c09-bivouac.mp4" data-start="56.144" data-duration="4.0" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c10-bestiole" src="media/c10-bestiole.mp4" data-start="60.144" data-duration="4.433" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c11-coeur" src="media/c11-coeur.mp4" data-start="64.577" data-duration="2.26" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c12-jeanpaul-a" src="media/c12-jeanpaul-a.mp4" data-start="66.837" data-duration="1.667" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-c13-jeanpaul-b" src="media/c13-jeanpaul-b.mp4" data-start="68.504" data-duration="1.767" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="music" src="assets/musique-suspense.mp3" data-start="0" data-duration="74.771" data-media-start="0" data-track-index="11" data-volume="0.8" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0.0}, {"t": 0.05, "v": 0.9}, {"t": 0.8, "v": 0.9}, {"t": 2.417, "v": 0.9}, {"t": 2.517, "v": 0.9}, {"t": 4.684, "v": 0.9}, {"t": 4.784, "v": 0.9}, {"t": 6.751, "v": 0.9}, {"t": 6.851, "v": 0.9}, {"t": 9.018, "v": 0.9}, {"t": 9.118, "v": 1.0}, {"t": 12.218, "v": 1.0}, {"t": 12.318, "v": 0.22}, {"t": 14.651, "v": 0.22}, {"t": 14.751, "v": 0.22}, {"t": 19.084, "v": 0.22}, {"t": 19.184, "v": 0.22}, {"t": 22.584, "v": 0.22}, {"t": 22.684, "v": 0.22}, {"t": 26.451, "v": 0.22}, {"t": 26.551, "v": 0.22}, {"t": 31.551, "v": 0.22}, {"t": 31.651, "v": 0.22}, {"t": 38.806, "v": 0.22}, {"t": 38.906, "v": 0.8}, {"t": 40.673, "v": 0.8}, {"t": 40.773, "v": 0.8}, {"t": 42.473, "v": 0.8}, {"t": 42.573, "v": 0.08}, {"t": 51.561, "v": 0.08}, {"t": 51.661, "v": 0.22}, {"t": 56.094, "v": 0.22}, {"t": 56.194, "v": 0.22}, {"t": 60.094, "v": 0.22}, {"t": 60.194, "v": 0.22}, {"t": 64.527, "v": 0.22}, {"t": 64.627, "v": 0.22}, {"t": 66.787, "v": 0.22}, {"t": 66.887, "v": 0.22}, {"t": 68.454, "v": 0.22}, {"t": 68.554, "v": 0.22}, {"t": 70.221, "v": 0.22}, {"t": 70.271, "v": 1.0}, {"t": 73.571, "v": 0.9}, {"t": 74.771, "v": 0.0}]}]}'></audio>
+      <audio id="sfx-0" src="assets/whoosh-short.mp3" data-start="12.148" data-duration="0.575" data-track-index="20" data-volume="0.45"></audio>
+      <audio id="sfx-1" src="assets/whoosh-short.mp3" data-start="14.581" data-duration="0.575" data-track-index="21" data-volume="0.45"></audio>
+      <audio id="sfx-2" src="assets/whoosh-short.mp3" data-start="19.014" data-duration="0.575" data-track-index="22" data-volume="0.45"></audio>
+      <audio id="sfx-3" src="assets/whoosh-short.mp3" data-start="22.514" data-duration="0.575" data-track-index="23" data-volume="0.45"></audio>
+      <audio id="sfx-4" src="assets/whoosh-short.mp3" data-start="26.381" data-duration="0.575" data-track-index="24" data-volume="0.45"></audio>
+      <audio id="sfx-5" src="assets/whoosh-short.mp3" data-start="31.481" data-duration="0.575" data-track-index="25" data-volume="0.45"></audio>
+      <audio id="sfx-6" src="assets/whoosh-short.mp3" data-start="42.403" data-duration="0.575" data-track-index="26" data-volume="0.45"></audio>
+      <audio id="sfx-7" src="assets/whoosh-short.mp3" data-start="51.491" data-duration="0.575" data-track-index="27" data-volume="0.45"></audio>
+      <audio id="sfx-8" src="assets/whoosh-short.mp3" data-start="56.024" data-duration="0.575" data-track-index="28" data-volume="0.45"></audio>
+      <audio id="sfx-9" src="assets/whoosh-short.mp3" data-start="60.024" data-duration="0.575" data-track-index="29" data-volume="0.45"></audio>
+      <audio id="sfx-10" src="assets/whoosh-short.mp3" data-start="64.457" data-duration="0.575" data-track-index="30" data-volume="0.45"></audio>
+      <audio id="sfx-11" src="assets/whoosh-short.mp3" data-start="66.717" data-duration="0.575" data-track-index="31" data-volume="0.45"></audio>
+      <audio id="sfx-12" src="assets/whoosh-short.mp3" data-start="68.384" data-duration="0.575" data-track-index="32" data-volume="0.45"></audio>
+      <audio id="sfx-13" src="assets/riser.mp3" data-start="6.468" data-duration="10.032" data-track-index="33" data-volume="0.7"></audio>
+      <audio id="sfx-14" src="assets/impact-bass-1.mp3" data-start="9.068" data-duration="2.116" data-track-index="34" data-volume="1.0"></audio>
+      <audio id="sfx-15" src="assets/glitch-1.mp3" data-start="9.968" data-duration="2.638" data-track-index="35" data-volume="0.5"></audio>
+      <audio id="sfx-16" src="assets/whoosh-cinematic.mp3" data-start="41.323" data-duration="5.544" data-track-index="36" data-volume="0.8"></audio>
+      <audio id="sfx-17" src="assets/impact-bass-2.mp3" data-start="42.523" data-duration="2.592" data-track-index="37" data-volume="0.8"></audio>
+      <audio id="sfx-18" src="assets/riser.mp3" data-start="64.037" data-duration="10.032" data-track-index="38" data-volume="0.5"></audio>
+      <audio id="sfx-19" src="assets/impact-bass-1.mp3" data-start="70.271" data-duration="2.116" data-track-index="39" data-volume="1.0"></audio>
+      <audio id="sfx-20" src="assets/impact-bass-2.mp3" data-start="71.871" data-duration="2.592" data-track-index="40" data-volume="0.9"></audio>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
+      tl.fromTo("#ov-broll-ballons .over-in", {opacity: 0, scale: 1.15}, {opacity: 1, scale: 1, duration: 0.5, ease: "power2.out"}, 0.1);
+      tl.fromTo("#v-broll-ballons", {scale: 1.12}, {scale: 1.0, duration: 2.467, ease: "power1.out"}, 0.0);
+      tl.fromTo("#v-broll-chameaux", {scale: 1.12}, {scale: 1.0, duration: 2.267, ease: "power1.out"}, 2.467);
+      tl.fromTo("#ov-broll-souk .over-in", {opacity: 0, scale: 1.15}, {opacity: 1, scale: 1, duration: 0.5, ease: "power2.out"}, 4.834);
+      tl.fromTo("#v-broll-souk", {scale: 1.12}, {scale: 1.0, duration: 2.067, ease: "power1.out"}, 4.734);
+      tl.fromTo("#v-broll-dunes", {scale: 1.12}, {scale: 1.0, duration: 2.267, ease: "power1.out"}, 6.801);
+      tl.fromTo("#cap-c01-audrey .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 12.318000000000001);
+      tl.fromTo("#v-c01-audrey", {scale: 1.0}, {scale: 1.06, duration: 2.433, ease: "none"}, 12.268);
+      tl.set("#flash", {opacity: 0.55}, 12.268).to("#flash", {opacity: 0, duration: 0.14}, 12.268);
+      tl.fromTo("#cap-c02-delphine .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 14.751000000000001);
+      tl.fromTo("#v-c02-delphine", {scale: 1.0}, {scale: 1.06, duration: 4.433, ease: "none"}, 14.701);
+      tl.set("#flash", {opacity: 0.55}, 14.701).to("#flash", {opacity: 0, duration: 0.14}, 14.701);
+      tl.fromTo("#cap-c03-pierre .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 19.184);
+      tl.fromTo("#v-c03-pierre", {scale: 1.0}, {scale: 1.06, duration: 3.5, ease: "none"}, 19.134);
+      tl.set("#flash", {opacity: 0.55}, 19.134).to("#flash", {opacity: 0, duration: 0.14}, 19.134);
+      tl.fromTo("#cap-c04-diana .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 22.684);
+      tl.fromTo("#v-c04-diana", {scale: 1.0}, {scale: 1.06, duration: 3.867, ease: "none"}, 22.634);
+      tl.set("#flash", {opacity: 0.55}, 22.634).to("#flash", {opacity: 0, duration: 0.14}, 22.634);
+      tl.fromTo("#cap-c05-dino .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 26.551000000000002);
+      tl.fromTo("#v-c05-dino", {scale: 1.0}, {scale: 1.06, duration: 5.1, ease: "none"}, 26.501);
+      tl.set("#flash", {opacity: 0.55}, 26.501).to("#flash", {opacity: 0, duration: 0.14}, 26.501);
+      tl.fromTo("#cap-c06-sebastien .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 31.651);
+      tl.fromTo("#v-c06-sebastien", {scale: 1.0}, {scale: 1.06, duration: 7.255, ease: "none"}, 31.601);
+      tl.set("#flash", {opacity: 0.55}, 31.601).to("#flash", {opacity: 0, duration: 0.14}, 31.601);
+      tl.fromTo("#v-broll-the", {scale: 1.12}, {scale: 1.0, duration: 1.867, ease: "power1.out"}, 38.856);
+      tl.fromTo("#ov-broll-feu .over-in", {opacity: 0, scale: 1.15}, {opacity: 1, scale: 1, duration: 0.5, ease: "power2.out"}, 40.823);
+      tl.fromTo("#v-broll-feu", {scale: 1.12}, {scale: 1.0, duration: 1.8, ease: "power1.out"}, 40.723);
+      tl.fromTo("#cap-c07-marion .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 42.573);
+      tl.fromTo("#v-c07-marion", {scale: 1.0}, {scale: 1.06, duration: 9.088, ease: "none"}, 42.523);
+      tl.set("#flash", {opacity: 0.55}, 42.523).to("#flash", {opacity: 0, duration: 0.14}, 42.523);
+      tl.fromTo("#cap-c08-sousx .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 51.660999999999994);
+      tl.fromTo("#v-c08-sousx", {scale: 1.0}, {scale: 1.06, duration: 4.533, ease: "none"}, 51.611);
+      tl.set("#flash", {opacity: 0.55}, 51.611).to("#flash", {opacity: 0, duration: 0.14}, 51.611);
+      tl.fromTo("#cap-c09-bivouac .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 56.193999999999996);
+      tl.fromTo("#v-c09-bivouac", {scale: 1.0}, {scale: 1.06, duration: 4.0, ease: "none"}, 56.144);
+      tl.set("#flash", {opacity: 0.55}, 56.144).to("#flash", {opacity: 0, duration: 0.14}, 56.144);
+      tl.fromTo("#cap-c10-bestiole .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 60.193999999999996);
+      tl.fromTo("#v-c10-bestiole", {scale: 1.0}, {scale: 1.06, duration: 4.433, ease: "none"}, 60.144);
+      tl.set("#flash", {opacity: 0.55}, 60.144).to("#flash", {opacity: 0, duration: 0.14}, 60.144);
+      tl.fromTo("#cap-c11-coeur .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 64.627);
+      tl.fromTo("#v-c11-coeur", {scale: 1.0}, {scale: 1.06, duration: 2.26, ease: "none"}, 64.577);
+      tl.set("#flash", {opacity: 0.55}, 64.577).to("#flash", {opacity: 0, duration: 0.14}, 64.577);
+      tl.fromTo("#cap-c12-jeanpaul-a .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 66.887);
+      tl.fromTo("#v-c12-jeanpaul-a", {scale: 1.0}, {scale: 1.06, duration: 1.667, ease: "none"}, 66.837);
+      tl.set("#flash", {opacity: 0.55}, 66.837).to("#flash", {opacity: 0, duration: 0.14}, 66.837);
+      tl.fromTo("#cap-c13-jeanpaul-b .cap-in", {opacity: 0, y: 30, scale: 0.94}, {opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)"}, 68.554);
+      tl.fromTo("#v-c13-jeanpaul-b", {scale: 1.0}, {scale: 1.06, duration: 1.767, ease: "none"}, 68.504);
+      tl.set("#flash", {opacity: 0.55}, 68.504).to("#flash", {opacity: 0, duration: 0.14}, 68.504);
+      tl.fromTo("#t-maroc", {scale: 2.2, opacity: 0}, {scale: 1, opacity: 1, duration: 0.35, ease: "expo.out"}, 9.068);
+      tl.fromTo("#t-band", {scaleX: 0}, {scaleX: 1, duration: 0.4, ease: "power3.out"}, 9.517999999999999);
+      tl.fromTo("#t-rev", {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 0.3}, 9.767999999999999);
+      tl.to("#t-maroc", {x: 8, duration: 0.05, repeat: 5, yoyo: true, ease: "none"}, 9.968);
+      tl.set("#flash", {opacity: 1}, 9.068).to("#flash", {opacity: 0, duration: 0.3}, 9.068);
+      tl.fromTo("#e-q", {opacity: 0, scale: 1.3}, {opacity: 1, scale: 1, duration: 0.4, ease: "expo.out"}, 70.371);
+      tl.to("#e-q", {opacity: 0, duration: 0.25}, 71.721);
+      tl.fromTo("#e-title", {opacity: 0, scale: 1.4}, {opacity: 1, scale: 1, duration: 0.4, ease: "expo.out"}, 71.871);
+      tl.fromTo("#e-suite", {opacity: 0}, {opacity: 1, duration: 0.5}, 72.671);
+      tl.set("#flash", {opacity: 0.9}, 71.871).to("#flash", {opacity: 0, duration: 0.25}, 71.871);
+      tl.fromTo("#tag-0 .dot", {opacity: 1}, {opacity: 0.15, duration: 0.5, repeat: 53, yoyo: true, ease: "none"}, 12.268);
+      tl.fromTo("#tag-1 .dot", {opacity: 1}, {opacity: 0.15, duration: 0.5, repeat: 55, yoyo: true, ease: "none"}, 42.523);
       window.__timelines["main"] = tl;
-      tl.seek(0);
     </script>
   </body>
 </html>
