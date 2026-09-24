@@ -4,3 +4,4 @@ montage/**/work/
 node_modules/
 montage/**/media/
 montage/**/snapshots/
+montage/**/*.mp4
