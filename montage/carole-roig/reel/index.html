@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Carole Roig, opticien à domicile</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root { --char: #212121; --orange: #FB7828; --white: #ffffff; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--char); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--char); font-family: Montserrat, sans-serif; }
+      .shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .scene { position: absolute; inset: 0; overflow: hidden; background: var(--char); }
+      .scene.light { background: var(--white); }
+      .kb { position: absolute; inset: 0; overflow: hidden; }
+      .kb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(33,33,33,0.15) 30%, rgba(33,33,33,0.88) 78%); }
+      .intro-txt { position: absolute; left: 80px; right: 80px; bottom: 360px; color: var(--white); }
+      .glasses { display: flex; align-items: center; margin-bottom: 36px; }
+      .glasses .o { display: block; width: 96px; height: 96px; border: 18px solid var(--orange); border-radius: 50%; }
+      .glasses .bar { display: block; width: 34px; height: 16px; background: var(--orange); }
+      #i-name { font-weight: 900; font-size: 128px; line-height: 1; letter-spacing: -0.02em; }
+      #i-job { margin-top: 26px; overflow: hidden; }
+      #i-job span { display: inline-block; background: var(--orange); color: var(--char); font-weight: 800; font-size: 62px; padding: 8px 26px; }
+      #i-where { margin-top: 18px; font-weight: 700; font-size: 62px; }
+      #badge { position: absolute; top: 110px; left: 60px; background: rgba(255,255,255,0.92); padding: 18px 26px; border-radius: 18px; }
+      #badge img { display: block; width: 300px; height: auto; }
+      .cap { position: absolute; left: 70px; right: 70px; bottom: 330px; display: flex; justify-content: center; }
+      .cap-in { background: var(--char); color: var(--white); font-weight: 800; font-size: 58px; line-height: 1.18; text-align: center; padding: 16px 30px; border-radius: 16px; border-bottom: 8px solid var(--orange); }
+      .cap.q .cap-in { background: var(--orange); color: var(--char); border-bottom-color: var(--char); font-style: italic; }
+      .qtag { position: absolute; left: 70px; bottom: 560px; background: var(--white); color: var(--char); font-weight: 800; font-size: 32px; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 20px; border-radius: 10px; }
+      .frame { position: absolute; left: 110px; top: 330px; width: 860px; height: 860px; overflow: hidden; border-radius: 28px; border: 10px solid var(--orange); }
+      .frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .promise { position: absolute; left: 80px; right: 80px; bottom: 360px; color: var(--white); }
+      .p1 { display: block; font-weight: 900; font-size: 140px; line-height: 1; letter-spacing: -0.02em; }
+      .p2 { display: block; overflow: hidden; margin-top: 12px; }
+      .p2 span { display: inline-block; font-weight: 800; font-size: 76px; color: var(--orange); }
+      #end { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--char); }
+      #e-logo { display: block; width: 820px; height: auto; }
+      #e-line { width: 240px; height: 10px; background: var(--orange); margin: 70px 0 60px; }
+      #e-name { font-weight: 900; font-size: 96px; }
+      #e-job { margin-top: 14px; font-weight: 700; font-size: 50px; color: var(--char); }
+      #e-list { margin-top: 60px; display: flex; align-items: center; gap: 26px; font-weight: 700; font-size: 40px; color: var(--char); }
+      #e-list .sep { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--orange); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="46.0" data-width="1080" data-height="1920">
+<div id="intro" class="clip scene" data-start="0" data-duration="3.4" data-track-index="1">
+  <div class="kb"><img id="intro-img" src="media/photo2.jpg" alt="" /></div>
+  <div class="shade"></div>
+  <div class="intro-txt">
+    <div class="glasses"><span class="o"></span><span class="bar"></span><span class="o"></span></div>
+    <h1 id="i-name">Carole Roig</h1>
+    <p id="i-job"><span>Opticien à domicile</span></p>
+    <p id="i-where">en Vendée</p>
+  </div>
+</div>
+<video id="v-carole" class="clip shot" src="media/carole.mp4" data-start="3.4" data-duration="32.1" data-media-start="0" data-track-index="0" muted playsinline></video>
+<audio id="a-carole" src="media/carole.mp4" data-start="3.4" data-duration="32.1" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+<div id="badge" class="clip" data-start="3.4" data-duration="32.1" data-track-index="4"><img src="media/logo.png" alt="Les Opticiens Mobiles" /></div>
+<div id="cap-0" class="clip cap q" data-start="3.52" data-duration="2.31" data-track-index="3"><p class="cap-in">Est-ce que, Carole, vous</p></div>
+<div id="cap-1" class="clip cap q" data-start="5.83" data-duration="0.79" data-track-index="3"><p class="cap-in">me direz si les</p></div>
+<div id="cap-2" class="clip cap q" data-start="6.62" data-duration="0.93" data-track-index="3"><p class="cap-in">lunettes que j&#x27;ai choisies</p></div>
+<div id="cap-3" class="clip cap q" data-start="7.55" data-duration="1.68" data-track-index="3"><p class="cap-in">me vont ou pas ?</p></div>
+<div id="cap-4" class="clip cap" data-start="9.23" data-duration="0.85" data-track-index="3"><p class="cap-in">Bien sûr que je vais</p></div>
+<div id="cap-5" class="clip cap" data-start="10.08" data-duration="1.31" data-track-index="3"><p class="cap-in">vous dire si ça va.</p></div>
+<div id="cap-6" class="clip cap" data-start="11.39" data-duration="0.58" data-track-index="3"><p class="cap-in">Parce que vous êtes</p></div>
+<div id="cap-7" class="clip cap" data-start="11.97" data-duration="0.9" data-track-index="3"><p class="cap-in">quand même la vitrine</p></div>
+<div id="cap-8" class="clip cap" data-start="12.87" data-duration="1.32" data-track-index="3"><p class="cap-in">après de mon travail.</p></div>
+<div id="cap-9" class="clip cap" data-start="14.19" data-duration="1.65" data-track-index="3"><p class="cap-in">Donc vous allez obligatoirement</p></div>
+<div id="cap-10" class="clip cap" data-start="15.84" data-duration="1.59" data-track-index="3"><p class="cap-in">repartir avec une monture qui</p></div>
+<div id="cap-11" class="clip cap" data-start="17.43" data-duration="1.05" data-track-index="3"><p class="cap-in">vous va déjà.</p></div>
+<div id="cap-12" class="clip cap q" data-start="18.48" data-duration="0.93" data-track-index="3"><p class="cap-in">Et si moi je trouve</p></div>
+<div id="cap-13" class="clip cap q" data-start="19.41" data-duration="1.41" data-track-index="3"><p class="cap-in">qu&#x27;elle ne me va pas ?</p></div>
+<div id="cap-14" class="clip cap" data-start="20.82" data-duration="1.0" data-track-index="3"><p class="cap-in">Je vais vous expliquer</p></div>
+<div id="cap-15" class="clip cap" data-start="21.82" data-duration="1.43" data-track-index="3"><p class="cap-in">pourquoi elle vous va.</p></div>
+<div id="cap-16" class="clip cap" data-start="23.25" data-duration="1.16" data-track-index="3"><p class="cap-in">Parce que peut-être qu&#x27;on est</p></div>
+<div id="cap-17" class="clip cap" data-start="24.41" data-duration="1.61" data-track-index="3"><p class="cap-in">sur des idées préconçues, une</p></div>
+<div id="cap-18" class="clip cap" data-start="26.02" data-duration="2.08" data-track-index="3"><p class="cap-in">habitude, toujours les mêmes formes,</p></div>
+<div id="cap-19" class="clip cap" data-start="28.1" data-duration="0.97" data-track-index="3"><p class="cap-in">alors que le visage par</p></div>
+<div id="cap-20" class="clip cap" data-start="29.07" data-duration="0.98" data-track-index="3"><p class="cap-in">contre ne change pas.</p></div>
+<div id="cap-21" class="clip cap q" data-start="30.05" data-duration="0.83" data-track-index="3"><p class="cap-in">Et je m&#x27;habille souvent dans</p></div>
+<div id="cap-22" class="clip cap q" data-start="30.88" data-duration="1.37" data-track-index="3"><p class="cap-in">les mêmes couleurs, est-ce que</p></div>
+<div id="cap-23" class="clip cap q" data-start="32.25" data-duration="1.11" data-track-index="3"><p class="cap-in">vous pouvez m&#x27;aider à accorder</p></div>
+<div id="cap-24" class="clip cap q" data-start="33.36" data-duration="0.6" data-track-index="3"><p class="cap-in">tout ça ?</p></div>
+<div id="cap-25" class="clip cap" data-start="33.96" data-duration="1.37" data-track-index="3"><p class="cap-in">Ah oui, bien sûr !</p></div>
+<div id="qtag-0" class="clip qtag" data-start="3.45" data-duration="5.3" data-track-index="5">Question de cliente</div>
+<div id="qtag-1" class="clip qtag" data-start="18.45" data-duration="2.1" data-track-index="5">Question de cliente</div>
+<div id="qtag-2" class="clip qtag" data-start="30.0" data-duration="3.75" data-track-index="5">Question de cliente</div>
+<div id="out-0" class="clip scene" data-start="35.5" data-duration="2.1" data-track-index="1">
+  <div class="kb"><img id="o-img-0" src="media/photo1.jpg" alt="" /></div><div class="shade"></div>
+  <div class="promise"><span class="p1" id="p1-0">Partout</span><span class="p2" id="p2-0"><span>où vous êtes</span></span></div>
+</div>
+<div id="out-1" class="clip scene" data-start="37.6" data-duration="2.1" data-track-index="1">
+  <div class="kb"><img id="o-img-1" src="media/photo2.jpg" alt="" /></div><div class="shade"></div>
+  <div class="promise"><span class="p1" id="p1-1">Bilans</span><span class="p2" id="p2-1"><span>visuels</span></span></div>
+</div>
+<div id="out-2" class="clip scene dark" data-start="39.7" data-duration="2.1" data-track-index="1">
+  <div class="frame"><img id="o-img-2" src="media/photo3.jpg" alt="" /></div>
+  <div class="promise"><span class="p1" id="p1-2">Conseils</span><span class="p2" id="p2-2"><span>personnalisés</span></span></div>
+</div>
+<div id="end" class="clip scene light" data-start="41.8" data-duration="4.2" data-track-index="1">
+  <img id="e-logo" src="media/logo.png" alt="Les Opticiens Mobiles" />
+  <div id="e-line"></div>
+  <p id="e-name">Carole Roig</p>
+  <p id="e-job">Opticien à domicile en Vendée</p>
+  <p id="e-list"><span>Bilans visuels</span><span class="sep"></span><span>Conseils personnalisés</span></p>
+</div>
+<audio id="music" src="assets/musique-douce.mp3" data-start="0" data-duration="46.0" data-media-start="0" data-track-index="11" data-volume="0.7" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.6, "v": 0.8}, {"t": 3.1999999999999997, "v": 0.8}, {"t": 3.8, "v": 0.12}, {"t": 35.2, "v": 0.12}, {"t": 35.7, "v": 0.8}, {"t": 44.8, "v": 0.8}, {"t": 46.0, "v": 0}]}]}'></audio>
+<audio id="sfx-0" src="assets/whoosh-cinematic.mp3" data-start="0" data-duration="5.544" data-track-index="20" data-volume="0.35"></audio>
+<audio id="sfx-1" src="assets/pop.mp3" data-start="0.15" data-duration="0.72" data-track-index="21" data-volume="0.4"></audio>
+<audio id="sfx-2" src="assets/whoosh-short.mp3" data-start="3.25" data-duration="0.575" data-track-index="22" data-volume="0.5"></audio>
+<audio id="sfx-3" src="assets/whoosh-short.mp3" data-start="35.38" data-duration="0.575" data-track-index="23" data-volume="0.45"></audio>
+<audio id="sfx-4" src="assets/whoosh-short.mp3" data-start="37.48" data-duration="0.575" data-track-index="24" data-volume="0.45"></audio>
+<audio id="sfx-5" src="assets/whoosh-short.mp3" data-start="39.58" data-duration="0.575" data-track-index="25" data-volume="0.45"></audio>
+<audio id="sfx-6" src="assets/chime.mp3" data-start="41.9" data-duration="2.544" data-track-index="26" data-volume="0.4"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#intro-img", {scale: 1.25}, {scale: 1.08, duration: 3.4, ease: "none"}, 0);
+      tl.fromTo("#intro .glasses", {scale: 0, rotation: -30}, {scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2.5)"}, 0.15);
+      tl.fromTo("#i-name", {y: 60, opacity: 0}, {y: 0, opacity: 1, duration: 0.5, ease: "power3.out"}, 0.4);
+      tl.fromTo("#i-job span", {xPercent: -105}, {xPercent: 0, duration: 0.45, ease: "power3.out"}, 0.8);
+      tl.fromTo("#i-where", {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.4, ease: "power2.out"}, 1.15);
+      tl.fromTo("#badge img", {y: -40, opacity: 0}, {y: 0, opacity: 1, duration: 0.4, ease: "power2.out"}, 3.6);
+      tl.fromTo("#cap-0 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 3.52);
+      tl.fromTo("#cap-1 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 5.83);
+      tl.fromTo("#cap-2 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 6.62);
+      tl.fromTo("#cap-3 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 7.55);
+      tl.fromTo("#cap-4 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 9.23);
+      tl.fromTo("#cap-5 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 10.08);
+      tl.fromTo("#cap-6 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 11.39);
+      tl.fromTo("#cap-7 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 11.97);
+      tl.fromTo("#cap-8 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 12.87);
+      tl.fromTo("#cap-9 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 14.19);
+      tl.fromTo("#cap-10 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 15.84);
+      tl.fromTo("#cap-11 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 17.43);
+      tl.fromTo("#cap-12 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 18.48);
+      tl.fromTo("#cap-13 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 19.41);
+      tl.fromTo("#cap-14 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 20.82);
+      tl.fromTo("#cap-15 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 21.82);
+      tl.fromTo("#cap-16 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 23.25);
+      tl.fromTo("#cap-17 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 24.41);
+      tl.fromTo("#cap-18 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 26.02);
+      tl.fromTo("#cap-19 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 28.1);
+      tl.fromTo("#cap-20 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 29.07);
+      tl.fromTo("#cap-21 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 30.05);
+      tl.fromTo("#cap-22 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 30.88);
+      tl.fromTo("#cap-23 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 32.25);
+      tl.fromTo("#cap-24 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 33.36);
+      tl.fromTo("#cap-25 .cap-in", {y: 18, opacity: 0}, {y: 0, opacity: 1, duration: 0.16, ease: "power2.out"}, 33.96);
+      tl.fromTo("#qtag-0", {x: -30, opacity: 0}, {x: 0, opacity: 1, duration: 0.3}, 3.45);
+      tl.fromTo("#qtag-1", {x: -30, opacity: 0}, {x: 0, opacity: 1, duration: 0.3}, 18.45);
+      tl.fromTo("#qtag-2", {x: -30, opacity: 0}, {x: 0, opacity: 1, duration: 0.3}, 30.0);
+      tl.fromTo("#o-img-0", {scale: 1.18}, {scale: 1.04, duration: 2.1, ease: "none"}, 35.5);
+      tl.fromTo("#p1-0", {y: 80, opacity: 0}, {y: 0, opacity: 1, duration: 0.4, ease: "power3.out"}, 35.6);
+      tl.fromTo("#p2-0 span", {yPercent: 110}, {yPercent: 0, duration: 0.4, ease: "power3.out"}, 35.8);
+      tl.fromTo("#o-img-1", {scale: 1.18}, {scale: 1.04, duration: 2.1, ease: "none"}, 37.6);
+      tl.fromTo("#p1-1", {y: 80, opacity: 0}, {y: 0, opacity: 1, duration: 0.4, ease: "power3.out"}, 37.7);
+      tl.fromTo("#p2-1 span", {yPercent: 110}, {yPercent: 0, duration: 0.4, ease: "power3.out"}, 37.9);
+      tl.fromTo("#o-img-2", {scale: 1.18}, {scale: 1.04, duration: 2.1, ease: "none"}, 39.7);
+      tl.fromTo("#p1-2", {y: 80, opacity: 0}, {y: 0, opacity: 1, duration: 0.4, ease: "power3.out"}, 39.800000000000004);
+      tl.fromTo("#p2-2 span", {yPercent: 110}, {yPercent: 0, duration: 0.4, ease: "power3.out"}, 40.0);
+      tl.fromTo("#e-logo", {scale: 0.8, opacity: 0}, {scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)"}, 41.9);
+      tl.fromTo("#e-line", {scaleX: 0}, {scaleX: 1, duration: 0.4, ease: "power3.out"}, 42.3);
+      tl.fromTo("#e-name", {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.4}, 42.5);
+      tl.fromTo("#e-job", {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.4}, 42.699999999999996);
+      tl.fromTo("#e-list", {opacity: 0}, {opacity: 1, duration: 0.5}, 43.099999999999994);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
