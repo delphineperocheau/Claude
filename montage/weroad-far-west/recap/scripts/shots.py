@@ -1,19 +1,45 @@
-# Plans dans l'ordre chronologique : (index album ordonné, durée, étiquette lieu ou None)
+# Plans dans l'ordre chronologique : (fichier dans ../rushes, durée, étiquette lieu ou None, options)
+# options vidéo : ss = début (s), crop = recadrage ffmpeg avant mise au format 1080x1920
 SHOTS = [
-    (0, 4.0, "Grand Canyon"),
-    (2, 2.0, "Bryce Canyon"), (13, 1.5, None), (5, 2.0, None),
-    (41, 2.0, "Las Vegas"), (46, 1.5, None), (69, 1.5, None), (70, 1.5, None), (66, 2.0, None),
-    (81, 2.0, "Death Valley"), (83, 1.5, None), (90, 2.0, None),
-    (100, 2.0, "Las Vegas"), (111, 1.5, None), (110, 1.5, None), (116, 2.0, None),
-    (122, 1.5, "Calico"),
-    (133, 2.0, "Hollywood"), (134, 2.5, None), (196, 1.5, None),
-    (140, 1.5, "Los Angeles"), (143, 2.0, None),
-    (174, 1.5, "Warner Bros. Studio"), (165, 2.5, None), (190, 2.0, None),
-    (207, 2.0, "Dodger Stadium"),
-    (224, 1.5, "Universal Studios"), (239, 1.5, None), (259, 1.5, None), (261, 2.0, None),
-    (266, 2.5, "Long Beach"), (271, 2.5, None),
-    (285, 2.0, "Los Angeles"), (287, 2.5, None),
-    (294, 3.0, None),
+    ("photos-701.heic", 4.0, None, {}),                      # aile d'avion au coucher du soleil (titre)
+    ("photos-693.heic", 1.5, "Santa Monica", {}),
+    ("photos-662.jpg", 2.0, "Beverly Hills", {}),              # selfie de groupe
+    ("photos-655.heic", 1.5, "Hollywood", {}),
+    ("photos-636.heic", 1.5, "Joshua Tree", {}),
+    ("photos-618.heic", 2.0, None, {}),                      # groupe à Skull Rock
+    ("photos-592.heic", 2.0, None, {}),                      # marche au coucher du soleil
+    ("photos-567.heic", 1.5, "Route 66", {}),                # âne sur la route
+    ("photos-563.heic", 2.0, None, {}),                      # bisou à l'âne
+    ("photos-539.heic", 1.5, None, {}),
+    ("photos-506.heic", 1.5, "Grand Canyon", {}),            # selfie au lever du soleil
+    ("photos-503.heic", 2.5, None, {}),                      # bras ouverts
+    ("photos-485.heic", 1.5, None, {}),
+    ("photos-430.heic", 2.0, "Monument Valley", {}),
+    ("photos-415.heic", 1.5, None, {}),
+    ("photos-383.heic", 2.0, "Horseshoe Bend", {}),
+    ("photos-359.heic", 1.5, "Antelope Canyon", {}),
+    ("photos-347.mp4", 1.5, None, {}),
+    ("photos-316.mp4", 2.0, "Bryce Canyon", {}),
+    ("photos-297.mp4", 1.5, None, {}),
+    ("photos-261.mp4", 2.0, "Las Vegas", {}),
+    ("photos-233.mp4", 1.5, None, {}),
+    ("photos-232.mp4", 1.5, None, {}),
+    ("photos-219.mp4", 2.0, "Death Valley", {}),
+    ("photos-213.mp4", 1.5, None, {}),
+    ("photos-202.mp4", 2.0, "Las Vegas", {}),                # toque « exigeant, mais facile aussi »
+    ("photos-192.mp4", 1.5, None, {}),
+    ("photos-180.mp4", 1.5, "Calico", {}),
+    ("photos-169.jpg", 1.5, "Los Angeles", {}),
+    ("photos-159.heic", 1.5, None, {}),
+    ("photos-137.heic", 2.0, "Warner Bros. Studio", {}),
+    ("photos-112.mp4", 1.5, None, {}),
+    ("photos-095.mp4", 1.5, "Dodger Stadium", {}),
+    ("photos-062.mp4", 1.5, "Universal Studios", {}),
+    ("photos-042.heic", 1.5, None, {}),
+    ("photos-032.mp4", 3.5, "Long Beach", {"ss": 5.4, "crop": "480:853:685:113"}),  # la baleine
+    ("photos-035.heic", 2.0, None, {}),
+    ("photos-014.heic", 2.0, "Los Angeles", {}),
+    ("photos-007.heic", 2.5, None, {}),
 ]
-END_BG = 296
+END_BG = "photos-005.heic"
 END = 4.5

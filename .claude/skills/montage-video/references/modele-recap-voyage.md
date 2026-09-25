@@ -3,7 +3,7 @@
 Projet : `montage/weroad-far-west/recap/`. Source : album Google Photos partagé (300 médias, HEIC + Motion Photos).
 
 ## Méthode
-1. `photos_download.py`, puis inventaire daté et tri chronologique (photos EXIF en heure locale, +7 h pour la côte ouest US l'été ; vidéos en UTC).
+1. `photos_download.py` (album complet, pagination), puis tri chronologique par l'horodatage de `manifest.json`.
 2. Planches de 40 vignettes numérotées ; présélection ; planches grand format des candidats.
 3. Sélection : paysages forts, moments de groupe, selfies souriants, une ou deux scènes drôles. Écarter plats, boutiques, flous, panneaux.
 4. `scripts/shots.py` : liste `(index, durée, étiquette de lieu ou None)`. Durées multiples de 0,5 s (musique 120 BPM). Environ 1,5 à 2,5 s par plan.
@@ -13,3 +13,6 @@ Projet : `montage/weroad-far-west/recap/`. Source : album Google Photos partagé
 
 ## Charte WeRoad
 Corail `#FF4758`, encre `#171717`, crème `#FFF9EB`. Logo SVG extrait du site weroad.fr (« We » corail, « Road » `#4D4D4D`, passé en blanc sur image). Police : Montserrat 900.
+
+## Trouver un moment précis dans une longue vidéo (ex. la baleine)
+Un sujet lointain est invisible sur les vignettes. Recadrer une zone de la vidéo à pleine résolution sur plusieurs instants (`crop=640:300:x:y`) et les assembler en grille. Dans le plan final, zoomer dessus avec l'option `crop` de `shots.py` (ex. `480:853:x:y`, recadrage 9:16 agrandi).

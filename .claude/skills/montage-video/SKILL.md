@@ -24,7 +24,7 @@ Dossier projet : `montage/<client-ou-sujet>/` avec `rushes/` (ignoré par git, t
 | Source | Méthode |
 | --- | --- |
 | Dossier Google Drive | Connecteur Google Drive : `search_files` (titre du dossier, puis `parentId = '<id>'`) pour lister. Télécharger avec `scripts/drive_download.sh` (lignes `<id> <nom>`). Ne pas utiliser `download_file_content` pour les vidéos (base64 dans le contexte). |
-| Album Google Photos partagé | `python3 scripts/photos_download.py <lien> rushes/` (testé : 300 médias en ~1 min). Les photos iPhone/Pixel arrivent en HEIC : `pip install pillow-heif` puis `pillow_heif.register_heif_opener()` pour les ouvrir. Les « vidéos » de 2-3 s sont des photos animées (Motion Photos), utiles comme plans vivants. |
+| Album Google Photos partagé | `python3 scripts/photos_download.py <lien> rushes/` (récupère tout l'album : la page publique n'affiche que ~300 médias, la suite est paginée ; testé sur 704 médias ; `manifest.json` donne l'horodatage UTC de chaque média, à utiliser pour l'ordre chronologique). Les photos iPhone/Pixel arrivent en HEIC : `pip install pillow-heif` puis `pillow_heif.register_heif_opener()` pour les ouvrir. Les « vidéos » de 2-3 s sont des photos animées (Motion Photos), utiles comme plans vivants. |
 | Fichiers dans le dépôt | Déjà là. |
 
 Drive et Photos : les fichiers doivent être partagés « tous les utilisateurs disposant du lien ». Si `drive_download.sh` signale PRIVÉ, demander de partager le dossier (clic droit > Partager > Accès général > Tous les utilisateurs disposant du lien) et rappeler à la fin qu'elle peut le repasser en privé.
@@ -36,7 +36,7 @@ Drive et Photos : les fichiers doivent être partagés « tous les utilisateurs 
 3. Transcription : `scripts/transcribe.sh rushes/ work/tr` en arrière-plan (≈ 2 min par minute de son), puis `python3 scripts/words.py work/tr`.
 4. Couleurs de marque : échantillonner le logo avec PIL (couleurs les plus fréquentes des pixels opaques).
 
-Beaucoup de médias (album de voyage) : inventaire daté (EXIF `DateTimeOriginal` pour les photos, heure locale ; `creation_time` pour les vidéos, en UTC), tri chronologique, puis planches numérotées de 40 vignettes à lire une par une. Méthode détaillée dans `references/modele-recap-voyage.md`.
+Beaucoup de médias (album de voyage) : inventaire trié par l'horodatage de `manifest.json` (plus fiable que l'EXIF), puis planches numérotées de 40 vignettes à lire une par une. Méthode détaillée dans `references/modele-recap-voyage.md`.
 
 ## 3. Brief (court)
 

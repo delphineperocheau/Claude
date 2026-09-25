@@ -2,7 +2,7 @@
 import json, html, subprocess, sys
 from PIL import Image
 sys.path.insert(0, 'scripts'); from shots import SHOTS, END_BG, END
-M = {int(k): v for k, v in json.load(open('media/index.json')).items()}
+M = json.load(open('media/index.json'))
 logo = open('assets/weroad-logo.svg').read()
 def logo_svg(cls, road):
     return logo.replace('<svg ', f'<svg class="{cls}" ', 1).replace('#4D4D4D', road)
@@ -10,7 +10,7 @@ def logo_svg(cls, road):
 el, js = [], []
 t = 0.0
 chapters = []  # (start, label)
-for i, (k, d, lab) in enumerate(SHOTS):
+for i, (k, d, lab, _) in enumerate(SHOTS):
     m = M[k]; s = round(t, 3); sid = f"s{i}"
     if lab: chapters.append((s, lab))
     zin = i % 2 == 0
@@ -33,10 +33,10 @@ e0 = round(t, 3); total = round(e0 + END, 3)
 # étiquettes de lieu (durée du chapitre) + balayage corail aux changements de chapitre
 for j, (s, lab) in enumerate(chapters):
     en = chapters[j + 1][0] if j + 1 < len(chapters) else e0
-    s2 = round(s + (3.15 if j == 0 else 0.15), 3); d = round(en - s2, 3)
+    s2 = round(s + 0.15, 3); d = round(en - s2, 3)
     el.append(f'<div id="lab-{j}" class="clip lab" data-start="{s2}" data-duration="{d}" data-track-index="3"><span class="pin"></span><span class="lab-t">{html.escape(lab.upper())}</span></div>')
     js.append(f'tl.fromTo("#lab-{j}", {{xPercent: -120}}, {{xPercent: 0, duration: 0.45, ease: "power3.out"}}, {s2});')
-    if j > 0:
+    if s > 0:
         ws = round(s - 0.2, 3)
         el.append(f'<div id="wipe-{j}" class="clip wipe" data-start="{ws}" data-duration="0.5" data-track-index="4"></div>')
         js.append(f'tl.fromTo("#wipe-{j}", {{xPercent: -101}}, {{xPercent: 101, duration: 0.5, ease: "power2.inOut"}}, {ws});')
