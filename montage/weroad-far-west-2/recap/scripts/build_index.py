@@ -88,7 +88,7 @@ js += [
 ]
 
 # audio
-auto = {"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1}, {"t": total - 1.2, "v": 1}, {"t": total, "v": 0}]}]}
+auto = {"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1}, {"t": total - 3, "v": 1}, {"t": total, "v": 0}]}]}
 el.append(f"<audio id=\"music\" src=\"assets/musique.mp3\" data-start=\"0\" data-duration=\"{total}\" data-media-start=\"0\" data-track-index=\"11\" data-volume=\"1\" data-automation='{json.dumps(auto)}'></audio>")
 def dur(f): return round(float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f])), 3)
 sfx = [("whoosh-cinematic", 0.0, 0.3)] + [("whoosh-short", round(s - 0.25, 3), 0.15) for s, _ in chapters[1:]] + [("chime", e0 + 0.2, 0.35)]

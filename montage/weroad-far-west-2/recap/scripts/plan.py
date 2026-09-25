@@ -8,9 +8,9 @@ items = []
 for f, lab, opt in ORDER:
     if f.endswith('.mp4'):
         cap = int((dur(f) - 0.5) / B)
-        items.append(dict(f=f, lab=lab, opt=opt, cap=cap, b=min(cap, opt.get('w', 8))))
+        items.append(dict(f=f, lab=lab, opt=opt, cap=cap, b=min(cap, opt.get('w', 5))))
     else:
-        items.append(dict(f=f, lab=lab, opt=opt, cap=6, b=4))
+        items.append(dict(f=f, lab=lab, opt=opt, cap=4, b=3))
 items[0]['b'] = INTRO_BEATS + 2  # premier plan porte le titre
 target = END_START_BEAT
 tot = sum(x['b'] for x in items)
@@ -21,7 +21,7 @@ while tot != target:
         cands = [x for x in items[1:] if x['b'] < x['cap']]
         cands.sort(key=lambda x: not x['f'].endswith('.mp4'))
     else:  # raccourcir d'abord les vidéos (jusqu'à 6 temps), puis les photos (jusqu'à 3)
-        cands = [x for x in items[1:] if x['f'].endswith('.mp4') and x['b'] > 6] or [x for x in items[1:] if x['b'] > 3]
+        cands = [x for x in items[1:] if x['f'].endswith('.mp4') and x['b'] > 4] or [x for x in items[1:] if x['b'] > 3]
     x = cands[i % len(cands)]; x['b'] += step; tot += step; i += 1
 k = 0
 for x in items:
