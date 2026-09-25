@@ -29,10 +29,13 @@ for i, b in enumerate(bases, 1):
         if kind == "video" and not ct.startswith("video/"):
             continue
         ext = {"video/mp4": ".mp4", "video/quicktime": ".mov", "image/jpeg": ".jpg", "image/png": ".png",
-               "image/webp": ".webp", "image/heic": ".heic"}.get(ct.split(";")[0], ".bin")
+               "image/webp": ".webp", "image/heic": ".heic", "image/heif": ".heic"}.get(ct.split(";")[0], ".bin")
+        data = r.read()
+        if ext == ".bin" and data[4:12] in (b"ftypheic", b"ftypmif1", b"ftypheix"):
+            ext = ".heic"
         path = os.path.join(out, f"photos-{i:03d}{ext}")
         with open(path, "wb") as f:
-            f.write(r.read())
+            f.write(data)
         print(path, ct, os.path.getsize(path))
         done = True
         break

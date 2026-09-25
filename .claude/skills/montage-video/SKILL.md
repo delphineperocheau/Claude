@@ -9,7 +9,7 @@ Méthode éprouvée sur deux projets du dépôt :
 - `montage/maroc/teaser/` : teaser façon télé-réalité, 17 rushes, phrases choc, confessionnal.
 - `montage/carole-roig/reel/` : Reel de marque pour une cliente (opticienne), 1 vidéo + 3 photos + logo, charte couleur.
 
-Chaque projet a un `scripts/build_index.py` qui génère la composition : **partir du modèle le plus proche et l'adapter**, ne pas réécrire de zéro. Détails dans `references/modele-teaser.md` et `references/modele-reel-marque.md`.
+Chaque projet a un `scripts/build_index.py` qui génère la composition : **partir du modèle le plus proche et l'adapter**, ne pas réécrire de zéro. Troisième modèle : `montage/weroad-far-west/recap/` (récap de voyage : photos et vidéos d'un album, ordre chronologique, étiquettes de lieu, charte de marque). Détails dans `references/modele-teaser.md`, `references/modele-reel-marque.md` et `references/modele-recap-voyage.md`.
 
 Charger aussi `/hyperframes` puis `/general-video` (règles de composition). Ne pas relancer leur entretien d'intention : le brief vient d'ici.
 
@@ -24,7 +24,7 @@ Dossier projet : `montage/<client-ou-sujet>/` avec `rushes/` (ignoré par git, t
 | Source | Méthode |
 | --- | --- |
 | Dossier Google Drive | Connecteur Google Drive : `search_files` (titre du dossier, puis `parentId = '<id>'`) pour lister. Télécharger avec `scripts/drive_download.sh` (lignes `<id> <nom>`). Ne pas utiliser `download_file_content` pour les vidéos (base64 dans le contexte). |
-| Album Google Photos partagé | `python3 scripts/photos_download.py <lien> rushes/` |
+| Album Google Photos partagé | `python3 scripts/photos_download.py <lien> rushes/` (testé : 300 médias en ~1 min). Les photos iPhone/Pixel arrivent en HEIC : `pip install pillow-heif` puis `pillow_heif.register_heif_opener()` pour les ouvrir. Les « vidéos » de 2-3 s sont des photos animées (Motion Photos), utiles comme plans vivants. |
 | Fichiers dans le dépôt | Déjà là. |
 
 Drive et Photos : les fichiers doivent être partagés « tous les utilisateurs disposant du lien ». Si `drive_download.sh` signale PRIVÉ, demander de partager le dossier (clic droit > Partager > Accès général > Tous les utilisateurs disposant du lien) et rappeler à la fin qu'elle peut le repasser en privé.
@@ -35,6 +35,8 @@ Drive et Photos : les fichiers doivent être partagés « tous les utilisateurs 
 2. Planche contact : `scripts/contact_sheet.sh rushes/ work/planche.jpg`, puis la lire (Read) pour voir le contenu.
 3. Transcription : `scripts/transcribe.sh rushes/ work/tr` en arrière-plan (≈ 2 min par minute de son), puis `python3 scripts/words.py work/tr`.
 4. Couleurs de marque : échantillonner le logo avec PIL (couleurs les plus fréquentes des pixels opaques).
+
+Beaucoup de médias (album de voyage) : inventaire daté (EXIF `DateTimeOriginal` pour les photos, heure locale ; `creation_time` pour les vidéos, en UTC), tri chronologique, puis planches numérotées de 40 vignettes à lire une par une. Méthode détaillée dans `references/modele-recap-voyage.md`.
 
 ## 3. Brief (court)
 
@@ -82,7 +84,7 @@ Règles apprises (éviter les erreurs déjà rencontrées) :
 
 Sans compte HeyGen (variable `HEYGEN_API_KEY`), `media-use resolve --type bgm` échoue. Alors, par ordre de préférence :
 1. un morceau fourni par Delphine (libre de droits) ;
-2. une musique synthétisée avec ffmpeg `aevalsrc` (exemples dans `montage/maroc/teaser/assets/` : suspense ; `montage/carole-roig/reel/assets/` : douce).
+2. une musique pop entraînante 120 BPM : `python3 scripts/music_pop.py <durée> out.wav` (numpy, intro sans batterie 4 s, outro 4,5 s), ou une musique synthétisée avec ffmpeg `aevalsrc` (exemples dans `montage/maroc/teaser/assets/` : suspense ; `montage/carole-roig/reel/assets/` : douce).
 Effets sonores intégrés : `/root/.claude/skills/media-use/audio/assets/sfx/` (whoosh, riser, impact-bass, glitch, pop, chime, sparkle).
 
 ## 9. Livrer

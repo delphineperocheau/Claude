@@ -8,3 +8,4 @@ montage/**/*.mp4
 
 # Clés API (ne jamais publier)
 .env
+__pycache__/
