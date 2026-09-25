@@ -78,7 +78,7 @@ Règles apprises (éviter les erreurs déjà rencontrées) :
 2. `npx hyperframes snapshot --at <t1>,<t2>,...` aux moments clés, assembler en une bande (ffmpeg `tile`), la regarder. Une image noire pile sur une coupe est un artefact de capture, vérifier à ±0,3 s.
 3. `npx hyperframes render --output renders/<nom>.mp4` en arrière-plan (≈ 4 à 5 s de calcul par seconde de vidéo).
 4. `scripts/share_version.sh renders/<nom>.mp4 montage/<projet>/<Nom-lisible>.mp4` (plus léger, -14 LUFS pour les réseaux).
-5. Contrôler : `ffprobe` (1080x1920, piste audio), puis envoyer avec SendUserFile (display render).
+5. Contrôler : `ffprobe` (1080x1920, piste audio), puis envoyer avec SendUserFile (display render). Limite d'envoi 30 Mo : au-delà, réencoder en débit fixe (`-b:v 2800k -maxrate 3200k`, ~26 Mo pour 73 s).
 
 ## 8. Musique
 
