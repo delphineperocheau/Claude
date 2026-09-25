@@ -16,3 +16,10 @@ Corail `#FF4758`, encre `#171717`, crème `#FFF9EB`. Logo SVG extrait du site we
 
 ## Trouver un moment précis dans une longue vidéo (ex. la baleine)
 Un sujet lointain est invisible sur les vignettes. Recadrer une zone de la vidéo à pleine résolution sur plusieurs instants (`crop=640:300:x:y`) et les assembler en grille. Dans le plan final, zoomer dessus avec l'option `crop` de `shots.py` (ex. `480:853:x:y`, recadrage 9:16 agrandi).
+
+## Variante « tous les médias sur une musique fournie » (`montage/weroad-far-west-2/recap/`)
+- Durée = durée du MP3. Tempo et phase mesurés (autocorrélation de l'enveloppe d'énergie, puis recherche fine BPM/phase) : 129 BPM pour « Burgers ».
+- `scripts/plan.py` : chaque plan dure un nombre entier de temps (photos 4, vidéos selon longueur et poids `w`), ajusté pour tomber pile sur l'écran de fin. Les coupes tombent sur les temps.
+- Vidéos paysage : fond flouté + image entière (dans `prep_media.py`). Capture d'écran de story : option `crop` pour retirer l'interface.
+- Fichiers Drive numérotés (000001…) : vérifier l'ordre avec l'EXIF, les vidéos exportées ont une date d'export, pas de prise de vue.
+- Un MP3 fourni n'est pas versionné (droits, poids).

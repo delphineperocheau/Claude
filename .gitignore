@@ -9,3 +9,6 @@ montage/**/*.mp4
 # Clés API (ne jamais publier)
 .env
 __pycache__/
+montage/**/ids.txt
+montage/weroad-far-west-2/recap/assets/musique.mp3
+montage/**/plan.json
