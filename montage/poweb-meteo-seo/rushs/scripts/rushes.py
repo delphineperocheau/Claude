@@ -40,10 +40,10 @@ RUSHES = {
         "question": ["L'IA va remplacer", "le SEO ?"],
     },
     "07-chatgpt": {
-        "seg": "B", "ranges": [(95.7, 123.5)], "first": "delphine", "speakers": [(0.0, "delphine"), (2.2, "camille")],
+        "seg": "B", "ranges": [(95.7, 122.3)], "first": "delphine", "speakers": [(0.0, "delphine"), (2.2, "camille")],
         "titre": "Apparaître dans ChatGPT",
         "question": ["Comment apparaître", "dans ChatGPT ?"],
-        "fix": {"j'ai pété": "ChatGPT", "il y a des moteurs": "IA des moteurs"},
+        "fix": {"j'ai pété": "ChatGPT", "Chartier PT,": "ChatGPT,", "il y a des moteurs": "IA des moteurs"},
     },
     "08-niche": {
         "seg": "B", "ranges": [(129.9, 173.9)], "first": "camille", "speakers": [(0.0, "camille")],

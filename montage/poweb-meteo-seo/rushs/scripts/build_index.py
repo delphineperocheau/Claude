@@ -70,12 +70,14 @@ for j, (t, w) in enumerate(SPK):
     js += [f'tl.set("#big-{w}, #sm-{o}, #pn-{o}", {{opacity: 1}}, {t});', f'tl.set("#big-{o}, #sm-{w}, #pn-{w}", {{opacity: 0}}, {t});']
     if t > 0:
         js.append(f'tl.fromTo("#pola", {{scale: 0.9}}, {{scale: 1, duration: 0.3, ease: "back.out(2)"}}, {t});')
-    if w not in seen and t < D - 3:
+    nxt = SPK[j + 1][0] if j + 1 < len(SPK) else D
+    st = round(t + (0.8 if t == 0 else 0.1), 3)
+    td = round(min(3.2, nxt - st - 0.05), 3)  # l'étiquette de nom ne déborde pas sur le plan suivant
+    if w not in seen and t < D - 3 and td >= 1.2:
         seen.add(w)
-        st = round(t + (0.8 if t == 0 else 0.1), 3)
-        el.append(f'<div id="tag-{w}" class="clip etq noir tagname" data-start="{st}" data-duration="3.2" data-track-index="{4 if w == "camille" else 9}">{NAMES[w]}</div>')
+        el.append(f'<div id="tag-{w}" class="clip etq noir tagname" data-start="{st}" data-duration="{td}" data-track-index="{4 if w == "camille" else 9}">{NAMES[w]}</div>')
         js.append(f'tl.fromTo("#tag-{w}", {{x: -80, opacity: 0}}, {{x: 0, opacity: 1, duration: 0.35, ease: "power3.out"}}, {st});')
-        js.append(f'tl.to("#tag-{w}", {{x: -80, opacity: 0, duration: 0.3, ease: "power2.in"}}, {round(st + 2.9, 3)});')
+        js.append(f'tl.to("#tag-{w}", {{x: -80, opacity: 0, duration: 0.3, ease: "power2.in"}}, {round(st + td - 0.3, 3)});')
 # étiquettes du haut
 el.append(f'<div id="tag-meteo" class="clip etq blanc" data-start="0" data-duration="{D}" data-track-index="2">la météo du SEO ☀️</div>')
 q_html = "".join(f'<span class="ql">{esc(l)}</span>' for l in r["question"])
