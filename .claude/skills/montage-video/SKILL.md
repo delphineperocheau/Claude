@@ -9,7 +9,7 @@ Méthode éprouvée sur deux projets du dépôt :
 - `montage/maroc/teaser/` : teaser façon télé-réalité, 17 rushes, phrases choc, confessionnal.
 - `montage/carole-roig/reel/` : Reel de marque pour une cliente (opticienne), 1 vidéo + 3 photos + logo, charte couleur.
 
-Chaque projet a un `scripts/build_index.py` qui génère la composition : **partir du modèle le plus proche et l'adapter**, ne pas réécrire de zéro. Troisième modèle : `montage/weroad-far-west/recap/` (récap de voyage : photos et vidéos d'un album, ordre chronologique, étiquettes de lieu, charte de marque). Détails dans `references/modele-teaser.md`, `references/modele-reel-marque.md` et `references/modele-recap-voyage.md`.
+Chaque projet a un `scripts/build_index.py` qui génère la composition : **partir du modèle le plus proche et l'adapter**, ne pas réécrire de zéro. Troisième modèle : `montage/weroad-far-west/recap/` (récap de voyage : photos et vidéos d'un album, ordre chronologique, étiquettes de lieu, charte de marque). Détails dans `references/modele-teaser.md`, `references/modele-reel-marque.md` et `references/modele-recap-voyage.md`. Quatrième modèle : `montage/poweb-meteo-seo/rushs/` (série de rushs courts tirés d'un webinaire à deux webcams, locutrice active en grand, charte poweb) ; méthode dans `references/modele-rushs-webinaire.md`.
 
 Charger aussi `/hyperframes` puis `/general-video` (règles de composition). Ne pas relancer leur entretien d'intention : le brief vient d'ici.
 

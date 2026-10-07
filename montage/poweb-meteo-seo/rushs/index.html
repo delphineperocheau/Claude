@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>La météo du SEO, La position 0</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Cabinet Grotesk"; src: url("assets/cabinet-500.woff2") format("woff2"); font-weight: 500; }
+      @font-face { font-family: "Cabinet Grotesk"; src: url("assets/cabinet-700.woff2") format("woff2"); font-weight: 700; }
+      @font-face { font-family: "Cabinet Grotesk"; src: url("assets/cabinet-800.woff2") format("woff2"); font-weight: 800; }
+      :root { --noir: #14110E; --corail: #E97458; --blanc: #ffffff; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--noir); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--noir); font-family: "Cabinet Grotesk", sans-serif; }
+      .big { position: absolute; left: 0; top: 600px; width: 1080px; height: 822px; object-fit: cover; opacity: 0; }
+      #pola { position: absolute; left: 760px; top: 560px; width: 276px; padding: 12px 12px 0; background: var(--blanc); box-shadow: 0 10px 28px rgba(0,0,0,0.45); transform: rotate(5deg); }
+      #pola .sm { position: absolute; left: 12px; top: 12px; width: 252px; height: 192px; object-fit: cover; opacity: 0; }
+      #pola::before { content: ""; display: block; width: 252px; height: 192px; background: #2a2622; }
+      #pola .pn { position: absolute; left: 0; right: 0; top: 208px; font-weight: 700; font-size: 28px; color: var(--noir); text-align: center; opacity: 0; }
+      #pola::after { content: ""; display: block; height: 52px; }
+      .etq { position: absolute; display: inline-block; font-weight: 800; padding: 10px 24px 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.35); border-radius: 4px 9px 5px 8px; }
+      .etq.blanc { background: var(--blanc); color: var(--noir); }
+      .etq.noir { background: var(--noir); color: var(--blanc); border: 3px solid var(--blanc); }
+      .etq.corail { background: var(--corail); color: var(--noir); }
+      #tag-meteo { left: 80px; top: 270px; font-size: 40px; transform: rotate(-3deg); }
+      #tag-q { left: 72px; right: 90px; top: 350px; font-size: 64px; line-height: 1.06; padding: 18px 30px 22px; transform: rotate(1.6deg); }
+      #tag-q .ql { display: block; }
+      .tagname { left: 60px; top: 640px; font-size: 32px; font-weight: 700; transform: rotate(-2deg); }
+      .cap { position: absolute; left: 80px; right: 80px; top: 1290px; height: 220px; display: flex; align-items: flex-end; justify-content: center; }
+      .cap-in { background: var(--blanc); color: var(--noir); font-weight: 800; font-size: 60px; line-height: 1.12; text-align: center; padding: 12px 28px 16px; border-radius: 6px 10px 6px 12px; box-shadow: 0 8px 22px rgba(0,0,0,0.4); }
+      #pied { position: absolute; left: 0; right: 0; top: 1560px; display: flex; justify-content: center; align-items: baseline; gap: 22px; color: var(--blanc); }
+      #pied b { font-weight: 800; font-size: 44px; color: var(--corail); }
+      #pied span { font-weight: 500; font-size: 32px; }
+      #end { position: absolute; inset: 0; background: var(--corail); }
+      #e-logo { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-weight: 800; font-size: 250px; line-height: 1; color: var(--noir); transform: rotate(-4deg); }
+      #e-l1 { left: 100px; top: 980px; font-size: 54px; transform: rotate(2.5deg); }
+      #e-l2 { left: 330px; top: 1110px; font-size: 64px; transform: rotate(-2deg); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45.85" data-width="1080" data-height="1920">
+<video id="big-camille" class="clip big" src="media/11-position-zero-camille.mp4" data-start="0" data-duration="42.45" data-media-start="0" data-track-index="0" muted playsinline></video>
+<video id="big-delphine" class="clip big" src="media/11-position-zero-delphine.mp4" data-start="0" data-duration="42.45" data-media-start="0" data-track-index="1" muted playsinline></video>
+<div id="pola"><video id="sm-camille" class="sm" src="media/11-position-zero-camille-pola.mp4" data-start="0" data-duration="42.45" data-media-start="0" data-track-index="2" muted playsinline></video><video id="sm-delphine" class="sm" src="media/11-position-zero-delphine-pola.mp4" data-start="0" data-duration="42.45" data-media-start="0" data-track-index="11" muted playsinline></video><span id="pn-camille" class="pn">Camille</span><span id="pn-delphine" class="pn">Delphine</span></div>
+<audio id="voix" src="media/11-position-zero-voix.m4a" data-start="0" data-duration="42.45" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+<div id="tag-camille" class="clip etq noir tagname" data-start="0.8" data-duration="3.2" data-track-index="4">Camille Dufossez, École du SEO</div>
+<div id="tag-meteo" class="clip etq blanc" data-start="0" data-duration="42.45" data-track-index="2">la météo du SEO ☀️</div>
+<div id="tag-q" class="clip etq corail" data-start="0" data-duration="42.45" data-track-index="3"><span class="ql">Passer devant</span><span class="ql">les pubs Google ?</span></div>
+<div id="pied" class="clip" data-start="0" data-duration="42.45" data-track-index="5"><b>poweb</b><span>poweb85.fr</span></div>
+<div id="cap-0" class="clip cap" data-start="0.08" data-duration="0.72" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">Mais, il y a</p></div>
+<div id="cap-1" class="clip cap" data-start="0.8" data-duration="1.49" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">quand même une petite</p></div>
+<div id="cap-2" class="clip cap" data-start="2.29" data-duration="1.32" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">astuce en organique que</p></div>
+<div id="cap-3" class="clip cap" data-start="3.61" data-duration="1.27" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">vous pouvez utiliser.</p></div>
+<div id="cap-4" class="clip cap" data-start="4.88" data-duration="2.08" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">C&#x27;est la position 0.</p></div>
+<div id="cap-5" class="clip cap" data-start="6.96" data-duration="1.78" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">Et la position 0</p></div>
+<div id="cap-6" class="clip cap" data-start="8.74" data-duration="1.14" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">elle vient au-dessus du</p></div>
+<div id="cap-7" class="clip cap" data-start="9.88" data-duration="2.12" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">premier résultat sponsorisé.</p></div>
+<div id="cap-8" class="clip cap" data-start="12.0" data-duration="0.73" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">Et en plus de</p></div>
+<div id="cap-9" class="clip cap" data-start="12.73" data-duration="1.5" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">ça, la position 0</p></div>
+<div id="cap-10" class="clip cap" data-start="14.23" data-duration="1.55" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">c&#x27;est un extrait de</p></div>
+<div id="cap-11" class="clip cap" data-start="15.78" data-duration="0.94" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">votre site.</p></div>
+<div id="cap-12" class="clip cap" data-start="16.72" data-duration="0.82" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">Et donc c&#x27;est hyper</p></div>
+<div id="cap-13" class="clip cap" data-start="17.54" data-duration="1.33" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">intéressant parce que déjà</p></div>
+<div id="cap-14" class="clip cap" data-start="18.87" data-duration="0.74" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">elle prend de la</p></div>
+<div id="cap-15" class="clip cap" data-start="19.61" data-duration="1.19" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">place sur la SERP.</p></div>
+<div id="cap-16" class="clip cap" data-start="20.8" data-duration="0.76" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">Vous allez avoir votre</p></div>
+<div id="cap-17" class="clip cap" data-start="21.56" data-duration="0.8" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">barre de recherche</p></div>
+<div id="cap-18" class="clip cap" data-start="22.36" data-duration="0.84" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">votre position 0</p></div>
+<div id="cap-19" class="clip cap" data-start="23.2" data-duration="0.25" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">où il y a</p></div>
+<div id="cap-20" class="clip cap" data-start="23.4" data-duration="1.15" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">carrément la réponse à</p></div>
+<div id="cap-21" class="clip cap" data-start="24.55" data-duration="1.57" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">la question.</p></div>
+<div id="cap-22" class="clip cap" data-start="26.12" data-duration="1.42" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">Et seulement après vos</p></div>
+<div id="cap-23" class="clip cap" data-start="27.54" data-duration="1.18" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">liens sponsorisés.</p></div>
+<div id="cap-24" class="clip cap" data-start="28.72" data-duration="1.05" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">Et pour aller chercher</p></div>
+<div id="cap-25" class="clip cap" data-start="29.77" data-duration="1.07" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">de la position 0</p></div>
+<div id="cap-26" class="clip cap" data-start="30.84" data-duration="0.65" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">passe à passe</p></div>
+<div id="cap-27" class="clip cap" data-start="31.49" data-duration="1.45" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">notamment par les rubriques</p></div>
+<div id="cap-28" class="clip cap" data-start="32.94" data-duration="0.5" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">FAQ.</p></div>
+<div id="cap-29" class="clip cap" data-start="33.44" data-duration="0.82" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">Ce genre de choses</p></div>
+<div id="cap-30" class="clip cap" data-start="34.26" data-duration="0.66" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">où on pose une</p></div>
+<div id="cap-31" class="clip cap" data-start="34.92" data-duration="1.09" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">question précise</p></div>
+<div id="cap-32" class="clip cap" data-start="36.01" data-duration="1.13" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">on apporte une question</p></div>
+<div id="cap-33" class="clip cap" data-start="37.14" data-duration="1.1" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">une réponse précise.</p></div>
+<div id="cap-34" class="clip cap" data-start="38.24" data-duration="0.58" data-track-index="6"><p class="cap-in" style="transform: rotate(-0.6deg)">Et où du coup</p></div>
+<div id="cap-35" class="clip cap" data-start="38.82" data-duration="0.9" data-track-index="6"><p class="cap-in" style="transform: rotate(1.6deg)">vous avez plus de</p></div>
+<div id="cap-36" class="clip cap" data-start="39.72" data-duration="1.55" data-track-index="6"><p class="cap-in" style="transform: rotate(-1.4deg)">chances d&#x27;atterrir dans ces</p></div>
+<div id="cap-37" class="clip cap" data-start="41.27" data-duration="1.0" data-track-index="6"><p class="cap-in" style="transform: rotate(1.1deg)">résultats-là.</p></div>
+<div id="end" class="clip" data-start="42.45" data-duration="3.4" data-track-index="7" data-layout-allow-overlap>
+  <p id="e-logo">poweb</p>
+  <p id="e-l1" class="etq noir">Le replay en entier : lien en bio</p>
+  <p id="e-l2" class="etq blanc">poweb85.fr</p>
+</div>
+<audio id="sfx-0" src="assets/pop.mp3" data-start="0.05" data-duration="0.72" data-track-index="20" data-volume="0.35"></audio>
+<audio id="sfx-1" src="assets/pop.mp3" data-start="0.25" data-duration="0.72" data-track-index="21" data-volume="0.35"></audio>
+<audio id="sfx-2" src="assets/whoosh-short.mp3" data-start="42.35" data-duration="0.575" data-track-index="22" data-volume="0.45"></audio>
+<audio id="sfx-3" src="assets/pop.mp3" data-start="42.9" data-duration="0.72" data-track-index="23" data-volume="0.3"></audio>
+<audio id="sfx-4" src="assets/chime.mp3" data-start="43.15" data-duration="2.544" data-track-index="24" data-volume="0.3"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#big-camille, #sm-delphine, #pn-delphine", {opacity: 1}, 0.0);
+      tl.set("#big-delphine, #sm-camille, #pn-camille", {opacity: 0}, 0.0);
+      tl.fromTo("#tag-camille", {x: -80, opacity: 0}, {x: 0, opacity: 1, duration: 0.35, ease: "power3.out"}, 0.8);
+      tl.to("#tag-camille", {x: -80, opacity: 0, duration: 0.3, ease: "power2.in"}, 3.7);
+      tl.fromTo("#tag-meteo", {scale: 0.6, opacity: 0, rotation: -9}, {scale: 1, opacity: 1, rotation: -3, duration: 0.35, ease: "back.out(2.2)"}, 0.05);
+      tl.fromTo("#tag-q", {scale: 0.7, opacity: 0, rotation: 6}, {scale: 1, opacity: 1, rotation: 1.6, duration: 0.4, ease: "back.out(2)"}, 0.25);
+      tl.fromTo("#pola", {y: -60, opacity: 0, rotation: 12}, {y: 0, opacity: 1, rotation: 5, duration: 0.45, ease: "back.out(1.8)"}, 0.5);
+      tl.fromTo("#pied", {opacity: 0}, {opacity: 1, duration: 0.4}, 0.6);
+      tl.fromTo("#cap-0 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 0.08);
+      tl.fromTo("#cap-1 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 0.8);
+      tl.fromTo("#cap-2 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 2.29);
+      tl.fromTo("#cap-3 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 3.61);
+      tl.fromTo("#cap-4 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 4.88);
+      tl.fromTo("#cap-5 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 6.96);
+      tl.fromTo("#cap-6 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 8.74);
+      tl.fromTo("#cap-7 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 9.88);
+      tl.fromTo("#cap-8 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 12.0);
+      tl.fromTo("#cap-9 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 12.73);
+      tl.fromTo("#cap-10 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 14.23);
+      tl.fromTo("#cap-11 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 15.78);
+      tl.fromTo("#cap-12 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 16.72);
+      tl.fromTo("#cap-13 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 17.54);
+      tl.fromTo("#cap-14 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 18.87);
+      tl.fromTo("#cap-15 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 19.61);
+      tl.fromTo("#cap-16 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 20.8);
+      tl.fromTo("#cap-17 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 21.56);
+      tl.fromTo("#cap-18 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 22.36);
+      tl.fromTo("#cap-19 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 23.2);
+      tl.fromTo("#cap-20 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 23.4);
+      tl.fromTo("#cap-21 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 24.55);
+      tl.fromTo("#cap-22 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 26.12);
+      tl.fromTo("#cap-23 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 27.54);
+      tl.fromTo("#cap-24 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 28.72);
+      tl.fromTo("#cap-25 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 29.77);
+      tl.fromTo("#cap-26 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 30.84);
+      tl.fromTo("#cap-27 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 31.49);
+      tl.fromTo("#cap-28 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 32.94);
+      tl.fromTo("#cap-29 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 33.44);
+      tl.fromTo("#cap-30 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 34.26);
+      tl.fromTo("#cap-31 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 34.92);
+      tl.fromTo("#cap-32 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 36.01);
+      tl.fromTo("#cap-33 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 37.14);
+      tl.fromTo("#cap-34 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 38.24);
+      tl.fromTo("#cap-35 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 38.82);
+      tl.fromTo("#cap-36 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 39.72);
+      tl.fromTo("#cap-37 .cap-in", {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.14, ease: "power2.out"}, 41.27);
+      tl.set("#pola", {opacity: 0}, 42.45);
+      tl.fromTo("#e-logo", {scale: 0.5, opacity: 0, rotation: -12}, {scale: 1, opacity: 1, rotation: -4, duration: 0.45, ease: "back.out(2)"}, 42.5);
+      tl.fromTo("#e-l1", {x: 120, opacity: 0, rotation: 6}, {x: 0, opacity: 1, rotation: 2.5, duration: 0.35, ease: "back.out(2)"}, 42.900000000000006);
+      tl.fromTo("#e-l2", {x: -120, opacity: 0, rotation: -6}, {x: 0, opacity: 1, rotation: -2, duration: 0.35, ease: "back.out(2)"}, 43.150000000000006);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
