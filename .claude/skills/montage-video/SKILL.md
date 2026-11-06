@@ -40,7 +40,15 @@ Beaucoup de médias (album de voyage) : inventaire trié par l'horodatage de `ma
 
 ## 3. Brief (court)
 
-Demander seulement ce qui manque, en une fois : format (défaut : vertical 9:16 « format réel »), durée, style, textes imposés (titre, accroches), son (voix d'origine + musique, défaut), couleurs. Consigner dans `montage/<projet>/BRIEF.md`.
+Avant de monter, poser quatre points, en une phrase chacun :
+- **Objectif** : ce que la vidéo doit déclencher (notoriété, prise de contact, inscription, souvenir partagé…).
+- **Cible** : qui la regarde (clientes non techniciennes, pairs, groupe de voyage…).
+- **Message clé** : la seule idée à retenir. Une vidéo, une idée.
+- **Action attendue** : ce que le spectateur fait à la fin (commenter, écrire en message, aller sur le site…). Elle va sur l'écran de fin ou dans la légende.
+
+Les déduire de la demande quand c'est possible ; demander seulement ce qui manque, en une fois, avec le reste : format (défaut : vertical 9:16 « format réel »), durée, style, textes imposés (titre, accroches), son (voix d'origine + musique, défaut), couleurs. Consigner dans `montage/<projet>/BRIEF.md`.
+
+**Les 2 premières secondes** : la vidéo s'ouvre sur la promesse, pas sur un logo ni une présentation. Une question ou une affirmation en grand dès la première image (étiquette, titre), et la première phrase gardée est celle qui accroche, pas un « bonjour ». Le logo va à la fin.
 
 ## 4. Choisir et caler les coupes
 
@@ -87,7 +95,16 @@ Sans compte HeyGen (variable `HEYGEN_API_KEY`), `media-use resolve --type bgm` �
 2. une musique pop entraînante 120 BPM : `python3 scripts/music_pop.py <durée> out.wav` (numpy, intro sans batterie 4 s, outro 4,5 s), ou une musique synthétisée avec ffmpeg `aevalsrc` (exemples dans `montage/maroc/teaser/assets/` : suspense ; `montage/carole-roig/reel/assets/` : douce).
 Effets sonores intégrés : `/root/.claude/skills/media-use/audio/assets/sfx/` (whoosh, riser, impact-bass, glitch, pop, chime, sparkle).
 
-## 9. Livrer
+## 9. Vérifier les droits avant de livrer
+
+À passer sur chaque vidéo, et à écrire dans le message final si un point reste ouvert :
+- **Personnes reconnaissables** (visage, voix, nom) autres que Delphine ou la cliente : leur accord est nécessaire avant publication. Le signaler et proposer une version sans elles (couper leurs passages, retirer la vignette). Cas vécu : rushs « La météo du SEO », seuls les passages de Delphine ont été gardés faute d'accord pour l'invitée.
+- **Musique** : uniquement un morceau fourni comme libre de droits, une musique générée (section 8) ou un effet du dossier `sfx`. Jamais un morceau commercial trouvé en ligne. Un MP3 fourni n'est jamais commité.
+- **Logos et marques de tiers** visibles à l'image (vêtements, écrans, enseignes) : les signaler si la vidéo sert à vendre.
+- **Contenus d'autrui** (diapos, captures d'écran, extraits de live) : citer la source dans la légende, et demander à Delphine si la reprise est convenue.
+- **Affirmations chiffrées ou juridiques** dans les sous-titres ou la légende : vérifiables, sinon les retirer ou les marquer `[?]`.
+
+## 10. Livrer
 
 - Commit + push des scripts, de `index.html` et des assets légers (jamais les rushes, `media/`, `renders/`, ni les `.mp4`).
-- Message final en français, style de Delphine : phrases courtes, pas de formules. Contenu : durée et format, déroulé en quelques lignes, points à valider (corrections de transcription incertaines, choix supposés, musique de remplacement), infos manquantes utiles (contact sur l'écran de fin), rappel de repasser le dossier en privé.
+- Message final en français, style de Delphine : phrases courtes, pas de formules. Contenu : durée et format, déroulé en quelques lignes, points à valider (corrections de transcription incertaines, choix supposés, musique de remplacement, droits encore ouverts), infos manquantes utiles (contact sur l'écran de fin), rappel de repasser le dossier en privé.
